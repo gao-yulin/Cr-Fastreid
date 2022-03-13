@@ -1,0 +1,49 @@
+_BASE_: ../Base-SBS.yml
+
+MODEL:
+  FREEZE_LAYERS: []
+  PIXEL_MEAN: [0]
+  PIXEL_STD: [1]
+  BACKBONE:
+    NAME: build_mlp_backbone
+    DEPTH: "2x"
+    WITH_IBN: True
+    PRETRAIN: False
+
+INPUT:
+  SIZE_TRAIN: [0, 0]
+  SIZE_TEST: [0, 0]
+  CROP:
+    ENABLED: False
+  FLIP:
+    ENABLED: False
+  PADDING:
+    ENABLED: False
+  CJ:
+    ENABLED: False
+  AFFINE:
+    ENABLED: False
+  AUTOAUG:
+    ENABLED: False
+  AUGMIX:
+    ENABLED: False
+  REA:
+    ENABLED: False
+  RPT:
+    ENABLED: False
+
+SOLVER:
+  FREEZE_ITERS: 0
+
+DATASETS:
+  NAMES: ("NAIC2021ReidTrain",)
+  TESTS: ("NAIC2021ReidTrain",)
+
+TEST:
+  FLIP:
+    ENABLED: False
+  ROC:
+    ENABLED: False
+  USE_FAISS_FOR_INDEX: True
+
+OUTPUT_DIR: project/logs/NAIC2021Reid/sbs_mlp2x
