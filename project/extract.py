@@ -22,10 +22,10 @@ def extract_feature(im_path: str) -> np.ndarray:
 
 
 def extract():
-    # img_dir = 'image'
-    img_dir = 'C:/Users/yling/Documents/naic/train/train_picture'
-    # fea_dir = 'feature'
-    fea_dir = 'datasets/NAIC2021Reid/train_feature'
+    img_dir = 'image'
+    # img_dir = 'C:/Users/yling/Documents/naic/train/train_picture'
+    fea_dir = 'feature'
+    # fea_dir = 'datasets/NAIC2021Reid/train_feature'
     os.makedirs(fea_dir, exist_ok=True)
     img_paths = glob.glob(os.path.join(img_dir, '*.*'))
     assert(len(img_paths) != 0)

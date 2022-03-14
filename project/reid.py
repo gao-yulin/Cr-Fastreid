@@ -6,7 +6,7 @@
 """
 import os
 import sys
-from tools.train_net import *
+from project.tools.train_net import *
 import json
 import numpy as np
 
