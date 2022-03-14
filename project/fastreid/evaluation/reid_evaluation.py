@@ -256,7 +256,8 @@ class ReidPredictor(ReidEvaluator):
         gallery_names_array = np.array(gallery_names)
         for query_idx, query_name in enumerate(query_names):
             result_dict[query_name] = gallery_names_array[indexes[query_idx]].tolist()
-        output_path = (self._output_dir or self.cfg.OUTPUT_DIR) + '/results.json'
+        bytes_rate = os.getenv("BYTES_RATE")
+        output_path = (self._output_dir or self.cfg.OUTPUT_DIR) + '/{}.json'.format(bytes_rate)
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         logger.info('Output path :' + output_path)
         with open(output_path, 'w', encoding='UTF8') as f:

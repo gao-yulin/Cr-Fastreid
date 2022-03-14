@@ -105,9 +105,10 @@ def default_setup(cfg, args):
         # Note: some of our scripts may expect the existence of
         # config.yaml in output directory
         path = os.path.join(output_dir, "config.yaml")
-        with PathManager.open(path, "w") as f:
-            f.write(cfg.dump())
-        logger.info("Full config saved to {}".format(os.path.abspath(path)))
+        # with PathManager.open(path, "w") as f:
+        #     f.write(cfg.dump())
+        logger.info("Full config not saved to {}".format(os.path.abspath(path)))
+        logger.info("To dump config.yaml, see fastreid/engine/defaults.py 111")
 
     # make sure each worker has a different, yet deterministic seed if specified
     seed_all_rng()
@@ -473,7 +474,7 @@ class DefaultTrainer(TrainerBase):
             data_loader, num_query = cls.build_test_loader(cfg, dataset_name)
             results_i = inference_on_dataset(
                 model, data_loader, ReidPredictor(
-                    cfg, num_query, osp.join(cfg.OUTPUT_DIR, 'Inference_On_' + dataset_name)),
+                    cfg, num_query, "reid_results"),
                 flip_test=cfg.TEST.FLIP.ENABLED
             )
             results[dataset_name] = results_i

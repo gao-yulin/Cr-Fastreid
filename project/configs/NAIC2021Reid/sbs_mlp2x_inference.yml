@@ -40,8 +40,8 @@ SOLVER:
   FREEZE_ITERS: 0
 
 DATASETS:
-  NAMES: ("NAIC2021ReidTestA",)
-  TESTS: ("NAIC2021ReidTestA",)
+  NAMES: ("NAIC2022ReidTest",)
+  TESTS: ("NAIC2022ReidTest",)
 
 TEST:
   FLIP:
@@ -50,4 +50,4 @@ TEST:
     100
   USE_FAISS_FOR_INDEX: True
 
-OUTPUT_DIR: project/logs/NAIC2021Reid/sbs_mlp2x_inference
+OUTPUT_DIR: ./

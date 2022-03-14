@@ -12,6 +12,7 @@ dirpath = os.path.dirname(__file__)
 pdirpath = os.path.join(os.path.split(dirpath)[0])
 sys.path.append(pdirpath)
 print(sys.path)
+os.environ["BYTES_RATE"] = "64"
 from fastreid.config import get_cfg
 from fastreid.engine import DefaultTrainer, default_argument_parser, default_setup, launch
 from fastreid.utils.checkpoint import Checkpointer

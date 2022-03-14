@@ -80,12 +80,12 @@ def setup_logger(
             filename = os.path.join(output, "log.txt")
         if distributed_rank > 0:
             filename = filename + ".rank{}".format(distributed_rank)
-        PathManager.mkdirs(os.path.dirname(filename))
-
-        fh = logging.StreamHandler(_cached_log_stream(filename))
-        fh.setLevel(logging.DEBUG)
-        fh.setFormatter(plain_formatter)
-        logger.addHandler(fh)
+        # PathManager.mkdirs(os.path.dirname(filename))
+        #
+        # fh = logging.StreamHandler(_cached_log_stream(filename))
+        # fh.setLevel(logging.DEBUG)
+        # fh.setFormatter(plain_formatter)
+        # logger.addHandler(fh)
 
     return logger
 

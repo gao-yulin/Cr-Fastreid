@@ -86,3 +86,76 @@ class NAIC2021ReidTestA(NAIC2021ReidTrain):
             gallery_dir, None, 2, False
         )
         return [], query_set, gallery_set
+
+@DATASET_REGISTRY.register()
+class NAIC2022ReidTest(NAIC2021ReidTrain):
+    _junk_pids = [-1]
+    query_dir = 'reconstructed_query_feature'
+    bytes_rate = os.getenv("BYTES_RATE")
+    dataset_url = ''
+    dataset_name = "NAIC2022ReidTest"
+
+    def gen_sample_sets(self):
+        query_dir = osp.join(self.query_dir, self.bytes_rate)
+        gallery_dir = 'gallery_feature'
+        required_files = [
+            query_dir,
+            gallery_dir,
+        ]
+        self.check_before_run(required_files)
+
+        query_set = lambda: self.process_dir(
+            query_dir, None, 1, False
+        )
+        gallery_set = lambda: self.process_dir(
+            gallery_dir, None, 2, False
+        )
+        return [], query_set, gallery_set
+
+@DATASET_REGISTRY.register()
+class NAIC2022ReidTest128(NAIC2021ReidTrain):
+    _junk_pids = [-1]
+    query_dir = 'reconstructed_query_feature'
+    dataset_url = ''
+    dataset_name = "NAIC2022ReidTest128"
+
+    def gen_sample_sets(self):
+        query_dir = osp.join(self.query_dir, '128')
+        gallery_dir = 'gallery_feature'
+        required_files = [
+            query_dir,
+            gallery_dir,
+        ]
+        self.check_before_run(required_files)
+
+        query_set = lambda: self.process_dir(
+            query_dir, None, 1, False
+        )
+        gallery_set = lambda: self.process_dir(
+            gallery_dir, None, 2, False
+        )
+        return [], query_set, gallery_set
+
+@DATASET_REGISTRY.register()
+class NAIC2022ReidTest256(NAIC2021ReidTrain):
+    _junk_pids = [-1]
+    query_dir = 'reconstructed_query_feature'
+    dataset_url = ''
+    dataset_name = "NAIC2022ReidTest256"
+
+    def gen_sample_sets(self):
+        query_dir = osp.join(self.query_dir, '256')
+        gallery_dir = 'gallery_feature'
+        required_files = [
+            query_dir,
+            gallery_dir,
+        ]
+        self.check_before_run(required_files)
+
+        query_set = lambda: self.process_dir(
+            query_dir, None, 1, False
+        )
+        gallery_set = lambda: self.process_dir(
+            gallery_dir, None, 2, False
+        )
+        return [], query_set, gallery_set
