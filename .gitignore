@@ -4,4 +4,8 @@
 /project/datasets/NAIC2021Reid/2021camp_feature_coding_query_feature_sample.zip
 /project/datasets/NAIC2021Reid/dataset.zip
 /project/__pycache__/
+project/tools/__pycache__/
 .idea/
+/reid_results/
+/reconstructed_query_feature/
+/gallery_feature/
