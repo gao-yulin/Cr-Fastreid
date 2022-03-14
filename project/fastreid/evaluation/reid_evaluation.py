@@ -27,6 +27,10 @@ from .rank_cylib import compile_helper
 logger = logging.getLogger(__name__)
 
 
+def get_file_basename(path: str) -> str:
+    return os.path.splitext(os.path.basename(path))[0]
+
+
 class ReidEvaluator(DatasetEvaluator):
     def __init__(self, cfg, num_query, output_dir=None):
         self.cfg = cfg
@@ -255,7 +259,11 @@ class ReidPredictor(ReidEvaluator):
         result_dict = {}
         gallery_names_array = np.array(gallery_names)
         for query_idx, query_name in enumerate(query_names):
-            result_dict[query_name] = gallery_names_array[indexes[query_idx]].tolist()
+            query_png_name = get_file_basename(query_name) + '.png'
+            gallery_name_list = gallery_names_array[indexes[query_idx]].tolist()
+            for file_idx in range(len(gallery_name_list)):
+                gallery_name_list[file_idx] = get_file_basename(gallery_name_list[file_idx]) + '.png'
+            result_dict[query_png_name] = gallery_name_list
         bytes_rate = os.getenv("BYTES_RATE")
         output_path = (self._output_dir or self.cfg.OUTPUT_DIR) + '/{}.json'.format(bytes_rate)
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
