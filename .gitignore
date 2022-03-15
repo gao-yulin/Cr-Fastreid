@@ -7,5 +7,3 @@
 project/tools/__pycache__/
 .idea/
 /reid_results/
-/reconstructed_query_feature/
-/gallery_feature/
