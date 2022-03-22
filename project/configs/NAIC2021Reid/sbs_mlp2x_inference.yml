@@ -4,7 +4,7 @@ MODEL:
   FREEZE_LAYERS: []
   PIXEL_MEAN: [0]
   PIXEL_STD: [1]
-  WEIGHTS: project/logs/NAIC2021Reid/sbs_mlp2x/model_best.pth
+  WEIGHTS: project/logs/NAIC2021Reid/sbs_mlp2x/model_final.pth
   BACKBONE:
     NAME: build_mlp_backbone
     DEPTH: "2x"

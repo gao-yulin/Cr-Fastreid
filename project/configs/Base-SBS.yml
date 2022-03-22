@@ -8,13 +8,13 @@ MODEL:
 
   HEADS:
     NECK_FEAT: after
-    POOL_LAYER: GeneralizedMeanPoolingP
+    POOL_LAYER: GeneralizedMeanPooling
     CLS_LAYER: CircleSoftmax
     SCALE: 64
     MARGIN: 0.35
 
   LOSSES:
-    NAME: ("CrossEntropyLoss", "TripletLoss",)
+    NAME: ("CrossEntropyLoss", "Cosface",)
     CE:
       EPSILON: 0.1
       SCALE: 1.0
@@ -40,7 +40,7 @@ SOLVER:
   AMP:
     ENABLED: True
   OPT: Adam
-  MAX_EPOCH: 10
+  MAX_EPOCH: 20
   BASE_LR: 0.00035
   WEIGHT_DECAY: 0.0005
   IMS_PER_BATCH: 64
@@ -54,10 +54,10 @@ SOLVER:
 
   FREEZE_ITERS: 1000
 
-  CHECKPOINT_PERIOD: 20
+  CHECKPOINT_PERIOD: 5
 
 TEST:
-  EVAL_PERIOD: 10
+  EVAL_PERIOD: 35
   IMS_PER_BATCH: 128
 
 CUDNN_BENCHMARK: True

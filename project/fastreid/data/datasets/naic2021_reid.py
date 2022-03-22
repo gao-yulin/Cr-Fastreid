@@ -15,7 +15,7 @@ class NAIC2021ReidTrain(ImageDataset):
 
     def __init__(self, root='datasets', **kwargs):
         self.root = root
-        self.dataset_dir = osp.join(self.root, self.dataset_dir)
+        self.dataset_dir = osp.join(osp.join('project', self.root), self.dataset_dir)
         train_set, query_set, gallery_set = self.gen_sample_sets()
         super(NAIC2021ReidTrain, self).__init__(train_set, query_set, gallery_set, **kwargs)
 

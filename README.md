@@ -8,6 +8,10 @@ pip install -r docs/requirements.txt
 ```
 ## Inference
 ```shell
+# extract the picture feature
+python project/extract.py
+# run simple demo
+python exmple.py
 # apply Reid inference
 python project/reid.py
 # results saved in reid_results/*.json

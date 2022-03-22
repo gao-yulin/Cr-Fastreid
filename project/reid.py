@@ -11,16 +11,16 @@ import json
 import numpy as np
 
 
-# def read_feature_file(path: str) -> np.ndarray:
-#     return np.fromfile(path, dtype='<f4')
 
 
 def reid(bytes_rate):
+    # set the environment variable
     os.environ["BYTES_RATE"] = bytes_rate
+    # configure the arguments
     args = default_argument_parser().parse_args(['--config-file', 'project/configs/NAIC2021Reid/sbs_mlp2x_inference.yml'
                                                  , '--infer-only', 'MODEL.DEVICE', 'cuda:0'])
-
     print("Command Line Args:", args)
+    # start inference
     launch(
         main,
         args.num_gpus,
