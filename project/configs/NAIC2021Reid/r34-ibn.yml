@@ -1,0 +1,11 @@
+_BASE_: Base-naic.yml
+
+MODEL:
+  BACKBONE:
+    NAME: build_resnet_backbone
+    DEPTH: 34x
+    FEAT_DIM: 512
+    WITH_IBN: True
+    PRETRAIN: False
+
+OUTPUT_DIR: project/logs/NAIC2021Reid/r34_ibn-128x256

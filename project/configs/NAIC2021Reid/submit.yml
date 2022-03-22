@@ -1,0 +1,28 @@
+_BASE_: Base-naic.yml
+
+MODEL:
+  BACKBONE:
+    NAME: build_resnet_backbone
+    DEPTH: 34x
+    FEAT_DIM: 512
+    WITH_IBN: True
+
+  WEIGHTS: project/logs/NAIC2021Reid/r34_ibn-128x256/model_final.pth
+
+DATASETS:
+  NAMES: ("NAIC2022ReidTest",)
+  TESTS: ("NAIC2022ReidTest",)
+
+TEST:
+  RERANK:
+    ENABLED: True
+    K1: 20
+    K2: 3
+    LAMBDA: 0.8
+
+  FLIP:
+    ENABLED: True
+
+  SAVE_DISTMAT: True
+
+OUTPUT_DIR: ./
